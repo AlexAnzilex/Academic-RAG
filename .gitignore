@@ -1,0 +1,18 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+venv-rag/
+.envrc
+
+# OS junk
+.DS_Store
+
+# App data
+chroma_db/
+data/pdf/*.pdf
+
+# Dotenv (se usato)
+.env
