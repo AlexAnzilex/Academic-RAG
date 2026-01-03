@@ -1,6 +1,6 @@
 # 📚 Academic RAG System
 
-A Retrieval-Augmented Generation (RAG) system for querying academic PDFs using local AI models. Built with LangChain, ChromaDB, and Ollama - **100% free and runs locally!**
+A Retrieval-Augmented Generation (RAG) system for querying academic PDFs using local AI models. Built with LangChain, ChromaDB, and Ollama
 
 ## ✨ Features
 
@@ -64,7 +64,7 @@ pip install -r requirements.txt
 curl -fsSL https://ollama.com/install.sh | sh
 
 # Download model
-ollama pull llama3.2:3b
+ollama pull llama3.1:8b
 
 # Start Ollama (usually automatic)
 ollama serve
@@ -134,7 +134,7 @@ Edit model in `src/rag.py`, `src/api.py`, or `src/app.py`:
 
 ```python
 rag = AcademicRAG(
-    model="llama3.1:8b",  # Options: llama3.2:3b, mistral:7b, phi3:mini
+    model="llama3.1:8b",  # Options: llama3.1:8b, mistral:7b, phi3:mini
     top_k=5               # Number of chunks to retrieve
 )
 ```
@@ -194,7 +194,7 @@ Database statistics
 {
   "total_chunks": 152,
   "total_pdfs": 4,
-  "model": "llama3.2:3b",
+  "model": "llama3.1:8b",
   "collection_name": "academic_papers"
 }
 ```
