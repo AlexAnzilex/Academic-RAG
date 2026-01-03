@@ -236,7 +236,7 @@ Contributions welcome! Please feel free to submit a Pull Request.
 
 ## 📧 Contact
 
-Alex Anzile - [@alexanzilex](www.linkedin.com/in/alexanzile)
+Alex Anzile - [@alexanzilex](https://www.linkedin.com/in/alexanzile/)
 
 Project Link: [https://github.com/yourusername/Academic-RAG](https://github.com/yourusername/Academic-RAG)
 
