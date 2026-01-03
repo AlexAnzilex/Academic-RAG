@@ -43,8 +43,8 @@ A Retrieval-Augmented Generation (RAG) system for querying academic PDFs using l
 
 1. **Clone repository**
 ```bash
-git clone https://github.com/yourusername/academic-rag.git
-cd academic-rag
+git clone https://github.com/yourusername/Academic-RAG.git
+cd Academic-RAG.git
 ```
 
 2. **Create virtual environment**
