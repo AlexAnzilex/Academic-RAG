@@ -23,13 +23,26 @@ python -m src.ingest
 This creates/updates the Chroma database in `chroma_db/` with indexed chunks.
 
 ## RAG query & chat
-Launch the CLI chat:
+CLI chat:
 ```bash
 python -m src.rag
 ```
 - Checks Ollama connectivity and model.  
 - Loads the vector store from `chroma_db/`.  
 - Interactive loop commands: `model` to switch model, `sources` to show last answer’s sources, `exit`/`quit` to leave.
+
+Streamlit UI:
+```bash
+streamlit run src/app.py
+```
+- Make sure you run from the project root so imports resolve.  
+- Sidebar shows chunks count, model, and lets you tweak `top_k` and view retrieved chunks.
+
+FastAPI (optional):
+```bash
+uvicorn src.api:app --reload --host 0.0.0.0 --port 8000
+```
+- Swagger docs at `/docs`. Endpoints: `/query`, `/health`, `/stats`.
 
 ## Main configuration
 `src/ingest.py`:

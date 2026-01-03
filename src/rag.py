@@ -1,3 +1,20 @@
+"""
+rag.py - RAG Query Engine (Ollama Version)
+
+WHAT THIS FILE DOES:
+1. Loads vector database created by ingest.py
+2. Receives questions from user
+3. Searches relevant chunks (Retrieval)
+4. Builds prompt with context
+5. Calls Ollama to answer (Generation) - LOCAL 
+
+OLLAMA SETUP:
+1. Install: curl -fsSL https://ollama.com/install.sh | sh
+2. Download model: ollama pull llama3.2:3b
+3. Start (automatic): ollama serve
+"""
+
+
 import os
 from typing import List, Dict, Optional
 from pathlib import Path
@@ -53,13 +70,9 @@ class AcademicRAG:
                 print(f"   Available models: {', '.join(model_names)}")
 
                 if model_names:
-                    print(f"   Do you want to use '{model_names[0]}' ? (y/n)")
-                    choice = input("    > ").strip().lower()
-                    if choice == 'y':
-                        self.model = model_names[0]
-                        print(f"    Using {self.model}")
-                    else:
-                        raise ValueError(f"Modello {self.model} non disponibile")
+                    # auto-fallback to the first available model to avoid interactive loop
+                    self.model = model_names[0]
+                    print(f"   Using fallback model: {self.model}")
                 else:
                     raise ValueError("Nessun modello Ollama installato!")
 
@@ -74,7 +87,7 @@ class AcademicRAG:
         self.vectorstore = Chroma(
             persist_directory=self.chroma_dir,
             embedding_function=self.embeddings,
-            collection_name="Accademic_papers",
+            collection_name="academic_papers",
         )
 
         collection = self.vectorstore._collection
@@ -150,7 +163,7 @@ class AcademicRAG:
                         "num_predict": 1000,
                     },
                 },
-                timeout=120,
+                timeout=360,
             )
 
             if response.status_code != 200:

@@ -1,3 +1,21 @@
+"""
+ingest.py - PDF Loading and Vector Database Creation
+
+WHAT THIS FILE DOES:
+1. Reads all PDFs from data/pdf/ folder
+2. Extracts text page by page
+3. Splits text into chunks (small, overlapping pieces)
+4. Creates embeddings (numerical vectors representing meaning)
+5. Saves everything in ChromaDB for fast retrieval
+
+KEY CONCEPTS:
+- Chunking: Breaking long text into pieces. Why? LLMs have token limits + 
+  small chunks = more precise search
+- Overlap: Chunks overlap slightly to preserve context
+- Embeddings: Transform text into numbers. Similar texts → similar numbers
+- VectorDB: Database optimized for finding similar vectors (semantic search)
+"""
+
 import os
 from pathlib import Path
 from typing import List
@@ -106,7 +124,7 @@ class PDFIngestor:
             documents = chunks,
             embedding = self.embeddings,
             persist_directory = str(self.chroma_dir),
-            collection_name = "Accademic_papers" 
+            collection_name = "academic_papers" 
         )                
 
         print("Vector Database created")
