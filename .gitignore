@@ -55,8 +55,9 @@ chroma_db/
 *.db
 *.sqlite3
 
-# PDFs (optional - uncomment if you don't want to commit PDFs)
-# data/pdf/*.pdf
+# PDFs - Ignore all PDFs in data/pdf folder
+data/pdf/*.pdf
+data/pdf/**/*.pdf
 
 # Logs
 *.log
