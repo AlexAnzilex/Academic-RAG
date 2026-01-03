@@ -238,14 +238,14 @@ Contributions welcome! Please feel free to submit a Pull Request.
 
 Your Name - [@yourhandle](https://twitter.com/yourhandle)
 
-Project Link: [https://github.com/yourusername/academic-rag](https://github.com/yourusername/academic-rag)
+Project Link: [https://github.com/yourusername/Academic-RAG](https://github.com/yourusername/Academic-RAG)
 
 ## 🙏 Acknowledgments
 
 - [LangChain](https://langchain.com/) for RAG framework
 - [Ollama](https://ollama.com/) for local LLM inference
 - [ChromaDB](https://www.trychroma.com/) for vector database
-- Inspired by the paper "Attention Is All You Need"
+
 
 ---
 
