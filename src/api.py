@@ -52,7 +52,7 @@ async def lifespan(app: FastAPI):
     try:
         rag_system = AcademicRAG(
             chroma_dir="chroma_db",
-            model="llama3.2:3b",
+            model="llama3.1:8b",
             top_k=5,
         )
         rag_system.load_vectorstore()
@@ -217,7 +217,7 @@ async def get_stats():
         total_chunks=chunks_count,
         total_pdfs=len(pdfs),
         model=rag_system.model,
-        collection_name="Accademic_papers"
+        collection_name="academic_papers"
     )
 
 @app.post("/query", response_model=QueryResponse, tags=["RAG"])

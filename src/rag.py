@@ -10,7 +10,7 @@ WHAT THIS FILE DOES:
 
 OLLAMA SETUP:
 1. Install: curl -fsSL https://ollama.com/install.sh | sh
-2. Download model: ollama pull llama3.2:3b
+2. Download model: ollama pull llama3.1:8b
 3. Start (automatic): ollama serve
 """
 
@@ -31,7 +31,7 @@ class AcademicRAG:
     def __init__(
         self, 
         chroma_dir: str = "chroma_db",
-        model: str = "llama3.2:3b",
+        model: str = "llama3.1:8b",
         ollama_url: str = "http://localhost:11434",
         top_k: int = 5
     ):
@@ -271,7 +271,7 @@ if __name__ == "__main__":
         
     rag = AcademicRAG(
         chroma_dir="chroma_db",
-        model="llama3.2:3b", 
+        model="llama3.1:8b", 
         top_k=5
         )
     
